@@ -10,6 +10,14 @@ Dictionary<string, Banda> bandasRegistradas = new ();
 bandasRegistradas.Add(ira.Nome, ira);
 bandasRegistradas.Add(bob.Nome, bob);
 
+Dictionary<int, Menu> opcoes  = new ();
+opcoes.Add(1, new MenuRegistrarBanda());
+opcoes.Add(2, new MenuRegistrarAlbum());
+opcoes.Add(3, new MenuMostrarBandas());
+opcoes.Add(4, new AvaliarBanda());
+opcoes.Add(5, new ExibirDetalhes());
+opcoes.Add(-1, new MenuSair());
+
 void ExibirLogo()
 {
     Console.WriteLine(@"
@@ -38,42 +46,22 @@ void ExibirOpcoesDoMenu()
     string opcaoEscolhida = Console.ReadLine()!;
     int opcaoEscolhidaNumerica = int.Parse(opcaoEscolhida);
 
-    switch (opcaoEscolhidaNumerica)
+    if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
-        case 1:
-            MenuRegistrarBanda menu1 = new();
-            menu1.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 2:
-            MenuRegistrarAlbum menu2 = new();
-            menu2.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 3:
-            MenuMostrarBandas menu3 = new();
-            menu3.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 4:
-            AvaliarBanda menuBanda = new AvaliarBanda();
-            menuBanda.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case 5:
-            ExibirDetalhes menu = new ExibirDetalhes();
-            menu.Executar(bandasRegistradas);
-            ExibirOpcoesDoMenu();
-            break;
-        case -1:
-            MenuSair menuSair = new();
-            menuSair.Executar(bandasRegistradas);
-            break;
-        default:
-            Console.WriteLine("Opção inválida");
-            break;
+
+        Menu menugeral = opcoes[opcaoEscolhidaNumerica];
+        menugeral.Executar(bandasRegistradas);
+
+
+        if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
+
+    }
+    else
+    {
+        Console.WriteLine("Opção inválida");
+
     }
 }
-
+  
 ExibirOpcoesDoMenu();
 

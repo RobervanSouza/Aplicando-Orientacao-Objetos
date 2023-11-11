@@ -11,5 +11,10 @@
         Console.WriteLine(titulo);
         Console.WriteLine(asteriscos + "\n");
     }
+    public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
+    {
+        Console.Clear();
+    }
+
 }
 
