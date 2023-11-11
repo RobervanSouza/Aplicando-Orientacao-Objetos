@@ -1,4 +1,5 @@
-﻿class Banda
+﻿namespace Aplicatiivo.Modelos;
+class Banda
 {
     private List<Album> albuns = new List<Album>();
     private List<int> notas = new List<int>();
@@ -29,5 +30,10 @@
         {
             Console.WriteLine($"Álbum: {album.Nome} ({album.DuracaoTotal})");
         }
+    }
+
+    internal void Add(int nota)
+    {
+        throw new NotImplementedException();
     }
 }

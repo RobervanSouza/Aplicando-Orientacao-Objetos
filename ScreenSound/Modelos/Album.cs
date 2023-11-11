@@ -1,4 +1,6 @@
-﻿class Album
+﻿namespace Aplicatiivo.Modelos;
+
+class Album
 {
     private List<Musica> musicas = new List<Musica>();
 
