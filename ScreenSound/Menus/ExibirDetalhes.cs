@@ -1,6 +1,4 @@
 ﻿namespace Aplicatiivo.Modelos;
-
-
 internal class ExibirDetalhes: Menu
 {
     
@@ -13,9 +11,15 @@ internal class ExibirDetalhes: Menu
         if (bandasRegistradas.ContainsKey(nomeDaBanda))
         {
             Banda bandas = bandasRegistradas[nomeDaBanda];
+            Console.WriteLine(bandas.Resumo);
+            
             Console.WriteLine($"\nA média da banda {nomeDaBanda} é {bandas.Media}.");
-
-            Console.WriteLine("Digite uma tecla para votar ao menu principal");
+            Console.WriteLine($"\n Discografia");
+            foreach (Album album in bandas.Albuns)
+            {
+                Console.WriteLine($" {album.Nome} -> {album.Media} ");
+            }
+            Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
            

@@ -1,5 +1,8 @@
 ﻿using Aplicatiivo.Modelos;
 
+
+
+
 Banda ira = new Banda("ira");
 ira.AdicionarNota(new Avaliacao(8));
 ira.AdicionarNota(new Avaliacao(8));
